@@ -1,20 +1,19 @@
 const express = require("express")
 const path = require("path")
 const dotenv = require(`dotenv`);
-
+const hbs = require("hbs")
 const app = express()
-//const hbs = require("hbs")
-//const collection = require("./mongodb")
-//const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+//path to templates folder
 const templatePath = path.join(__dirname,'/templates')
 
+//.env configuration - different for each node
 dotenv.config();
-hostname = process.env.THIS_HOST;
-port = process.env.PORT;
+var hostname = process.env.HOSTNAME;
+var port = process.env.PORT;
 
 app.set("view engine", "hbs")
 app.set("views", templatePath)
@@ -24,7 +23,7 @@ app.get("/", (req, res) =>{
 })
 
 app.listen(port,hostname, function () {
-    //console.log("port connected");
-    console.log(`Server ${process.env.NODE_NO} is running at:`);
-    console.log(`http://` + hostname + `:` + port);
+    console.log(`Server ` + nodenum + `: http://` + hostname + `:` + port);
 })
+
+module.exports = app;
