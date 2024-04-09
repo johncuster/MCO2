@@ -6,13 +6,13 @@ const node1 = mysql.createPool({
     user: "root",
     password: "root",
     database: 'appointments',
-    port: 20204
+    //port: 20204
 })
 
 const node2 = mysql.createPool({
     host: 'localhost',
     user: "root",
-    password: "root",
+    password: "root1",
     database: 'appointments',
     //port: 3306
 })
@@ -20,7 +20,7 @@ const node2 = mysql.createPool({
 const node3 = mysql.createPool({
     host: 'localhost',
     user: "root",
-    password: "root",
+    password: "root2",
     database: 'appointments',
     //port: 3306
 })
