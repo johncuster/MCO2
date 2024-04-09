@@ -12,7 +12,7 @@ const controller = {
             console.log("BOO");
         }
 
-        if(await node_utils.pingNode(1)){
+        if(await node_utils.pingNode(2)){
             console.log("HEY CONNECTED NODE 2");
         }
         else{
