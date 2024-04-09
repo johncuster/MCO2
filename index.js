@@ -55,19 +55,42 @@ app.listen(port,hostname, function () {
     console.log(`Server ` + nodenum + `: http://`+ hostname + `:` + port);
 })
 */
-node1.getConnection()
-    .then(connection => {
-        // Release the acquired connection back to the pool\
-        console.log('Connected to database.');
-        connection.release();
+switch(nodenum)
+{
+    case 1:
+        node1.getConnection()
+        .then(connection => {
+            // Release the acquired connection back to the pool\
+            console.log('Connected to database.');
+            connection.release();
 
-        // Start the server
-        app.listen(port, hostname, () => {
-            console.log(`Server: http://${hostname}:${port}`);
+            // Start the server
+            app.listen(port, hostname, () => {
+                console.log(`Server: http://${hostname}:${port}`);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error.message);
+            process.exit(1); // Exit the process if unable to connect to the database
         });
-    })
-    .catch(error => {
-        console.error('Error:', error.message);
-        process.exit(1); // Exit the process if unable to connect to the database
-    });
+        break;
+    case 2:
+        node2.getConnection()
+        .then(connection => {
+            // Release the acquired connection back to the pool\
+            console.log('Connected to database.');
+            connection.release();
+
+            // Start the server
+            app.listen(port, hostname, () => {
+                console.log(`Server: http://${hostname}:${port}`);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error.message);
+            process.exit(1); // Exit the process if unable to connect to the database
+        });
+        break;
+}
+
 module.exports = app;

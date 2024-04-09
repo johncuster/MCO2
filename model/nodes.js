@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 const dotenv = require(`dotenv`).config();
 
 const node1 = mysql.createPool({
-    host: 'localhost',
+    host: '10.2.0.204',
     user: "server1",
     password: "root",
     database: 'appointments',
@@ -10,7 +10,7 @@ const node1 = mysql.createPool({
 })
 
 const node2 = mysql.createPool({
-    host: 'localhost',
+    host: '10.2.0.205',
     user: "server2",
     password: "root",
     database: 'appointments',
@@ -18,7 +18,7 @@ const node2 = mysql.createPool({
 })
 
 const node3 = mysql.createPool({
-    host: 'localhost',
+    host: 'l10.2.0.206',
     user: "server3",
     password: "root",
     database: 'appointments',
