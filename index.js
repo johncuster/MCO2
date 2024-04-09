@@ -85,6 +85,7 @@ switch(nodenum)
             console.error('ERROR: Failed to Connect to Node 2');
         });
         break;
+        /*
     case `3`:
         node2.getConnection()
         .then(connection => {
@@ -98,7 +99,7 @@ switch(nodenum)
         .catch(error => {
             console.error('ERROR: Failed to Connect to Node 2');
         });
-        break;
+        break;*/
 }
 
 module.exports = app;

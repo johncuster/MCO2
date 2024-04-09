@@ -16,7 +16,7 @@ const node2 = mysql.createPool({
     database: 'appointments',
     //port: 3306
 })
-
+/*
 const node3 = mysql.createPool({
     host: '10.2.0.206',
     user: "server3",
@@ -24,7 +24,7 @@ const node3 = mysql.createPool({
     database: 'appointments',
     //port: 3306
 })
-/*
+
 async function getAppointments() {
     try {
         const [rows, fields] = await pool.query('SELECT * FROM appointments');
@@ -143,6 +143,6 @@ module.exports = {
     node1: node1,
     //getAppointments:getAppointments,
     node2: node2,
-    node3: node3,
+    //node3: node3,
     node_utils
 }
