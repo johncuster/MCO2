@@ -57,38 +57,46 @@ app.listen(port,hostname, function () {
 */
 switch(nodenum)
 {
-    case 1:
+    case `1`:
         node1.getConnection()
         .then(connection => {
-            // Release the acquired connection back to the pool\
             console.log('Connected to database.');
             connection.release();
 
-            // Start the server
             app.listen(port, hostname, () => {
                 console.log(`Server: http://${hostname}:${port}`);
             });
         })
         .catch(error => {
-            console.error('Error:', error.message);
-            process.exit(1); // Exit the process if unable to connect to the database
+            console.error('ERROR: Failed to Connect to Node 1');
         });
         break;
-    case 2:
+    case `2`:
         node2.getConnection()
         .then(connection => {
-            // Release the acquired connection back to the pool\
             console.log('Connected to database.');
             connection.release();
 
-            // Start the server
             app.listen(port, hostname, () => {
                 console.log(`Server: http://${hostname}:${port}`);
             });
         })
         .catch(error => {
-            console.error('Error:', error.message);
-            process.exit(1); // Exit the process if unable to connect to the database
+            console.error('ERROR: Failed to Connect to Node 2');
+        });
+        break;
+    case `3`:
+        node2.getConnection()
+        .then(connection => {
+            console.log('Connected to database.');
+            connection.release();
+
+            app.listen(port, hostname, () => {
+                console.log(`Server: http://${hostname}:${port}`);
+            });
+        })
+        .catch(error => {
+            console.error('ERROR: Failed to Connect to Node 2');
         });
         break;
 }

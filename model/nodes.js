@@ -18,7 +18,7 @@ const node2 = mysql.createPool({
 })
 
 const node3 = mysql.createPool({
-    host: 'l10.2.0.206',
+    host: '10.2.0.206',
     user: "server3",
     password: "root",
     database: 'appointments',
@@ -142,7 +142,7 @@ const node_utils = {
 module.exports = {
     node1: node1,
     //getAppointments:getAppointments,
-    //node2: node2,
-    //node3: node3,
+    node2: node2,
+    node3: node3,
     node_utils
 }
