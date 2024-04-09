@@ -3,7 +3,7 @@ const dotenv = require(`dotenv`).config();
 
 const node1 = mysql.createPool({
     host: 'localhost',
-    user: "root",
+    user: "server1",
     password: "root",
     database: 'appointments',
     //port: 20204
@@ -11,16 +11,16 @@ const node1 = mysql.createPool({
 
 const node2 = mysql.createPool({
     host: 'localhost',
-    user: "root",
-    password: "root1",
+    user: "server2",
+    password: "root",
     database: 'appointments',
     //port: 3306
 })
 
 const node3 = mysql.createPool({
     host: 'localhost',
-    user: "root",
-    password: "root2",
+    user: "server3",
+    password: "root",
     database: 'appointments',
     //port: 3306
 })

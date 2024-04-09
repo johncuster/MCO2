@@ -9,7 +9,7 @@ const controller = {
             console.log("HEY CONNECTED NODE 1");
         }
         else{
-            console.log("BOO");
+            console.log("BOO NODE 1 down");
         }
 
         if(await node_utils.pingNode(2)){
