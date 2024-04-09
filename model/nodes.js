@@ -72,34 +72,64 @@ const node3 = mysql.createPool({
     idleTimeout: 5000, 
     queueLimit: 0
 });
-
-const nodes = [node1, node2, node3];
+*/
 
 const node_utils = {
     pingNode: async function (node) {
+        switch (node) {
+            case 1: 
+                try { 
+                    let val = await node1.query('SELECT 1 AS solution'); 
+                    console.log(val[0][0].solution);
+                    return true;
+                }
+                catch (error) { 
+                    console.log(`ERROR: SServer is unreachable. Failed to connect to Node ${node}`); 
+                    console.log(error);
+                }
+                break;
+
+            case 2: 
+                try {
+                    let val = await node2.query('SELECT 1 AS solution');
+                    console.log(val[0][0].solution);
+                    return true;
+                }
+                catch (error) { 
+                    console.log(`ERROR: SServer is unreachable. Failed to connect to Node ${node}`); 
+                    console.log(error);
+                }
+                break;
+
+            case 3: 
+                try {
+                    let val = await node3.query('SELECT 1 AS solution');
+                    console.log(val[0][0].solution);
+                    return true;
+                }
+                catch (error) { 
+                    console.log(`ERROR: SServer is unreachable. Failed to connect to Node ${node}`); 
+                    console.log(error);
+                }
+                break;
+        }
+        /*
         try {
-            const [rows, fields] = await nodes[n - 1].query(`SELECT 1 + 1 as KEYCONNECT`);
+            const [rows, fields] = await nodes[n - 1].query(`SELECT 1`);
             return true;
         }
         catch (err) {
-            console.log(`Error: Failed to connect to Node ${n}. Server is not available.`);
+            console.log(`ERROR: Server is unreachable. Failed to connect to Node ${node}`);
             return false;
         }
+        */
     },
-
-    getConnection: async function(n) {
-        switch (node) {
-            case 1: return await node1.getConnection();
-            case 2: return await node2.getConnection();
-            case 3: return await node3.getConnection();
-        }
-    }
 }
-*/
+
 module.exports = {
     node1: node1,
     //getAppointments:getAppointments,
     //node2: node2,
     //node3: node3,
-    //node_utils
+    node_utils
 }
